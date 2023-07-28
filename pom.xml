@@ -15,5 +15,6 @@
     <modules>
       <module>service</module>
       <module>client</module>
+      <module>workaround</module>
     </modules>
 </project>
