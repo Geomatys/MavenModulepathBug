@@ -29,6 +29,12 @@
  * But any other features that depend on named modules are still broken.</p>
  *
  * <h2>Arguments</h2>
+ * Usage:
+ *
+ * <blockquote>
+ * <code>java -jar workaround/target/workaround-1.0.jar</code> <var>arguments</var>
+ * </blockquote>
+ *
  * The arguments given to the main method shall contain {@code --target=dir} where {@code dir}
  * is the target directory where to write generated files. Other arguments that are not options
  * are JAR files.
