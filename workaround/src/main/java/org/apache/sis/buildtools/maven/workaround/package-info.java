@@ -22,11 +22,18 @@
  * between {@code --class-path} and {@code --module-path} options by a tool on which we have no
  * control, such as Maven 3.8.6 or Gradle 8.2.1.
  *
+ * <p>Note that this workaround does not fix the real issue,
+ * which is that dependencies are loaded as unnamed modules when they should not.
+ * The workaround allows libraries and applications to find some service providers despite this problem,
+ * sometime not in the way that the providers should be (because of wrappers).
+ * But any other features that depend on named modules are still broken.</p>
+ *
  * <h2>Arguments</h2>
  * The arguments given to the main method shall contain {@code --target=dir} where {@code dir}
  * is the target directory where to write generated files. Other arguments that are not options
  * are JAR files.
  *
  * @author  Martin Desruisseaux (Geomatys)
+ * @see <a href="https://issues.apache.org/jira/browse/MNG-7855">MNG-7855 on JIRA issue tracker</a>
  */
 package org.apache.sis.buildtools.maven.workaround;

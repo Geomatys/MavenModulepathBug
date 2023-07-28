@@ -123,11 +123,17 @@ The main method expect the following arguments:
 
 * `--target=dir` where `dir` is the directory where to write generated files.
 * `--package=name` (optional) where `name` is the Java package name of the Java code to generate.
-* Path to JAR files (any number of them).
+* Paths to JAR files (any number of them).
 
 The program parses de `module-info.class` entries of all specified JAR files
 and generates a `META-INF/services/` directory with all service providers found.
 If a service provider declares a public static `provider()` method,
 then the program also generates a `java` sub-directory with Java code for wrappers.
 Those wrappers redirect all methods of the service interface to the same methods of
-the provider obtained by a call to the `provider()` statc method.
+the provider obtained by a call to the `provider()` static method.
+
+Note that this workaround does not fix the real issue,
+which is that dependencies are loaded as unnamed modules when they should not.
+The workaround allows libraries and applications to find some service providers despite this problem,
+sometime not in the way that the providers should be (because of wrappers).
+But any other features that depend on named modules are still broken.
