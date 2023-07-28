@@ -121,7 +121,7 @@ for example for replacing the service providers declared in that module by patch
 This repository contains a `workaround` sub-directory with a code generator that developers can use.
 The main method expect the following arguments:
 
-* `--target=dir` where `dir` is the directory where to write generated files.
+* `--out=dir` where `dir` is the directory where to write generated files.
 * `--package=name` (optional) where `name` is the Java package name of the Java code to generate.
 * Paths to JAR files (any number of them).
 

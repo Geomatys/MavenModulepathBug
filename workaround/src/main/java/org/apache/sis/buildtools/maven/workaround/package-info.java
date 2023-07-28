@@ -35,7 +35,7 @@
  * <code>java -jar workaround/target/workaround-1.0.jar</code> <var>arguments</var>
  * </blockquote>
  *
- * The arguments given to the main method shall contain {@code --target=dir} where {@code dir}
+ * The arguments given to the main method shall contain {@code --out=dir} where {@code dir}
  * is the target directory where to write generated files. Other arguments that are not options
  * are JAR files.
  *
