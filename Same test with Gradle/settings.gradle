@@ -1,0 +1,4 @@
+rootProject.name = 'GradleModulepathBug'
+
+include ':client'
+include ':service'

@@ -1,0 +1,15 @@
+apply plugin: 'java'
+description = 'client'
+dependencies {
+    implementation(project(":service"))
+    testImplementation('junit:junit:4.13')
+}
+test {
+    useJUnit()
+    testLogging {
+        events("PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR")
+    }
+}
+repositories {
+    mavenCentral()
+}
