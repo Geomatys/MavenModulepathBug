@@ -107,7 +107,7 @@ This is because Maven choices break usages of `java.util.ServiceLoader` in the d
 The workaround for library developers is to declare all service providers in _both_
 `module-info` and `META-INF/services`, with the risk of inconsistencies.
 This workaround forces developers to renounce to the usage of `provider()` static methods
-(that method was for for ensuring that singleton provider instances are used),
+(that method was for ensuring that singleton provider instances are used),
 because the `provider()` static method works only for providers declared in `module-info`.
 
 Ideally, developers should have explicit control on whether to put a dependency on the class-path or module-path.
@@ -137,3 +137,7 @@ which is that dependencies are loaded as unnamed modules when they should not.
 The workaround allows libraries and applications to find some service providers despite this problem,
 sometime not in the way that the providers should be (because of wrappers).
 But any other features that depend on named modules are still broken.
+
+# Bug reports
+* Maven JIRA: [MNG-7855](https://issues.apache.org/jira/browse/MNG-7855)
+* Gradle issue: [#25954](https://github.com/gradle/gradle/issues/25954)
