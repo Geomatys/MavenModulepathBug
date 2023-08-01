@@ -50,6 +50,8 @@ cd MavenModulepathBug
 mvn install
 ```
 
+Alternatively, it can also be run with `gradle test` instead of `mvn install`.
+
 During test execution, the following is printed:
 
 ```
@@ -77,16 +79,16 @@ The Maven wrong behavior can be reproduced on the command-line as below.
 All commands on this page use Unix syntax.
 For execution on Windows, replace `/` by `\` and `:` by `;`:
 
-```bash
-java --class-path service/target/service-1.0.jar:client/target/client-1.0.jar test.client.Main
-```
+* If the project was built with Maven:
+  `java --class-path service/target/service-1.0.jar:client/target/client-1.0.jar test.client.Main`
+* If the project was built with Gradle, run `gradle jar` first, then:
+  `java --class-path service/build/libs/service.jar:client/build/libs/client.jar test.client.Main`
 
 The expected behavior can be reproduced with the following command-line.
 The main difference is that the `service.jar` dependency is moved from class-path to module-path:
 
-```bash
-java --module-path service/target/service-1.0.jar --class-path client/target/client-1.0.jar --add-modules ALL-MODULE-PATH test.client.Main
-```
+* **Maven:**  `java --module-path service/target/service-1.0.jar --class-path client/target/client-1.0.jar --add-modules ALL-MODULE-PATH test.client.Main`
+* **Gradle:** `java --module-path service/build/libs/service.jar --class-path client/build/libs/client.jar --add-modules ALL-MODULE-PATH test.client.Main`
 
 Above command-line produces the following output:
 
