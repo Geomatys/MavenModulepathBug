@@ -1,0 +1,5 @@
+apply plugin: 'java'
+description = 'Module C'
+dependencies {
+    implementation(project(":b"))
+}

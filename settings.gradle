@@ -1,0 +1,5 @@
+rootProject.name = 'CyclicGraph'
+
+include ':a'
+include ':b'
+include ':c'
