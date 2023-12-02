@@ -1,5 +1,0 @@
-apply plugin: 'java'
-description = 'Module B'
-dependencies {
-    implementation(project(":a"))
-}

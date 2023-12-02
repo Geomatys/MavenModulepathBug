@@ -1,0 +1,19 @@
+apply plugin: 'java'
+description = 'All modules'
+compileJava {
+    options.compilerArgs << '-Xdoclint'
+    options.compilerArgs << '--module-source-path=' + file('*/src/main/java')
+}
+/*
+ * Following should not be needed because redundant with --module-source-path,
+ * but is required by Gradle in its current version.
+ */
+sourceSets {
+    main {
+        java {
+            srcDir 'a/src/main/java'
+            srcDir 'b/src/main/java'
+            srcDir 'c/src/main/java'
+        }
+    }
+}
