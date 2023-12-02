@@ -1,2 +1,5 @@
 apply plugin: 'java'
 description = 'Module A'
+compileJava {
+    options.compilerArgs << '-Xdoclint'
+}
